@@ -6,7 +6,7 @@
 # https://blowfish.page/docs/configuration/#theme-parameters
 
 colorScheme = "blowfish"
-defaultAppearance = "light" # valid options: light or dark
+defaultAppearance = "dark" # valid options: light or dark
 autoSwitchAppearance = true
 
 enableA11y = false
@@ -41,7 +41,8 @@ giteaDefaultServer = "https://git.fsfe.org"
 forgejoDefaultServer = "https://v11.next.forgejo.org"
 
 [header]
-  layout = "basic" # valid options: basic, fixed, fixed-fill, fixed-gradient, fixed-fill-blur
+  layout = "fixed-fill-blur" # valid options: basic, fixed, fixed-fill, fixed-gradient, fixed-fill-blur
+
 
 [footer]
   showMenu = true
@@ -65,7 +66,7 @@ forgejoDefaultServer = "https://v11.next.forgejo.org"
 [article]
   showDate = true
   showViews = true
-  showLikes = true
+  showLikes = false
   showDasteOnlyInArticle = false
   showDateUpdated = false
   showAuthor = true
@@ -76,8 +77,8 @@ forgejoDefaultServer = "https://v11.next.forgejo.org"
   layoutBackgroundHeaderSpace = true # only used when heroStyle equals background
   showBreadcrumbs = false
   showDraftLabel = true
-  showEdit = false
-  # editURL = "https://github.com/username/repo/"
+  showEdit = true
+  editURL = "https://github.com/Nizeross/nizeross.github.io/tree/main/content/"
   editAppendPath = true
   seriesOpened = false
   showHeadingAnchors = true
@@ -102,7 +103,7 @@ forgejoDefaultServer = "https://v11.next.forgejo.org"
   layoutBackgroundHeaderSpace = true # only used when heroStyle equals background
   showBreadcrumbs = false
   showSummary = false
-  showViews = true
+  showViews = false
   showLikes = false
   showTableOfContents = false
   showCards = false
@@ -120,7 +121,7 @@ forgejoDefaultServer = "https://v11.next.forgejo.org"
   showHero = false
   # heroStyle = "background" # valid options: basic, big, background, thumbAndBackground
   showBreadcrumbs = false
-  showViews = true
+  showViews = false
   showLikes = false
   showTableOfContents = false
   cardView = false
@@ -129,7 +130,7 @@ forgejoDefaultServer = "https://v11.next.forgejo.org"
   showHero = false
   # heroStyle = "background" # valid options: basic, big, background, thumbAndBackground
   showBreadcrumbs = false
-  showViews = true
+  showViews = false
   showLikes = false
   showTableOfContents = true
   groupByYear = false
@@ -137,20 +138,13 @@ forgejoDefaultServer = "https://v11.next.forgejo.org"
   cardViewScreenWidth = false
 
 [firebase]
-  # apiKey = "XXXXXX"
-  # authDomain = "XXXXXX"
-  # projectId = "XXXXXX"
-  # storageBucket = "XXXXXX"
-  # messagingSenderId = "XXXXXX"
-  # appId = "XXXXXX"
-  # measurementId = "XXXXXX"
-  apiKey = "AIzaSyDlMaHFta2wQE_de28aIka_LMI28PJUBV4"
-  authDomain = "blog-blowfish-cfaee.firebaseapp.com"
-  projectId = "blog-blowfish-cfaee"
-  storageBucket = "blog-blowfish-cfaee.firebasestorage.app"
-  messagingSenderId = "587286702711"
-  appId = "1:587286702711:web:327f6d58bd48f0dcc4b472"
-  measurementId = "G-V7RW6NWLKM"
+ # apiKey = "AIzaSyDlMaHFta2wQE_de28aIka_LMI28PJUBV4"
+ # authDomain = "blog-blowfish-cfaee.firebaseapp.com"
+ # projectId = "blog-blowfish-cfaee"
+ # storageBucket = "blog-blowfish-cfaee.firebasestorage.app"
+ # messagingSenderId = "587286702711"
+ # appId = "1:587286702711:web:327f6d58bd48f0dcc4b472"
+ # measurementId = "G-V7RW6NWLKM"
 
 [fathomAnalytics]
   # site = "ABC12345"
