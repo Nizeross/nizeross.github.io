@@ -33,7 +33,6 @@ jobs:
     env:
       HUGO_VERSION: 0.128.0 # 这里可以指定版本，或者删掉这行用默认latest
       HUGO_ENV: production
-      HUGO_CACHEDIR: ${{ runner.temp }}/hugo_cache_runner
     steps:
       - name: Install Hugo CLI
         run: |
