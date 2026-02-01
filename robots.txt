@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://nizeross.github.io/sitemap.xml
