@@ -144,13 +144,13 @@ forgejoDefaultServer = "https://v11.next.forgejo.org"
   # messagingSenderId = "XXXXXX"
   # appId = "XXXXXX"
   # measurementId = "XXXXXX"
-  apiKey: "AIzaSyDlMaHFta2wQE_de28aIka_LMI28PJUBV4",
-  authDomain: "blog-blowfish-cfaee.firebaseapp.com",
-  projectId: "blog-blowfish-cfaee",
-  storageBucket: "blog-blowfish-cfaee.firebasestorage.app",
-  messagingSenderId: "587286702711",
-  appId: "1:587286702711:web:327f6d58bd48f0dcc4b472",
-  measurementId: "G-V7RW6NWLKM"
+  apiKey = "AIzaSyDlMaHFta2wQE_de28aIka_LMI28PJUBV4"
+  authDomain = "blog-blowfish-cfaee.firebaseapp.com"
+  projectId = "blog-blowfish-cfaee"
+  storageBucket = "blog-blowfish-cfaee.firebasestorage.app"
+  messagingSenderId = "587286702711"
+  appId = "1:587286702711:web:327f6d58bd48f0dcc4b472"
+  measurementId = "G-V7RW6NWLKM"
 
 [fathomAnalytics]
   # site = "ABC12345"
