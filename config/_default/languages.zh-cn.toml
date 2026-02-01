@@ -22,5 +22,6 @@ title = "NizerossのBlog"
   links = [
     { bilibili = "https://space.bilibili.com/176505165" },
     { email = "mailto:1578686349@qq.com" },
+    { zhihu = "https://www.zhihu.com/people/da-kong-mo-shu" },
     { steam = "https://steamcommunity.com/id/nizeross/" },
    ]
