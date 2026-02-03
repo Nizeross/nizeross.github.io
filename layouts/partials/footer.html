@@ -85,5 +85,25 @@
   <span id="busuanzi_container_site_pv" style="display:none">
     本站总访问量 <span id="busuanzi_value_site_pv" class="font-bold"></span> 次
   </span>
-</div>
+  </div>
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const element = document.getElementById('typewriter');
+    if (!element) return; // 如果没找到元素就不执行
+
+    const text = element.getAttribute('data-text'); // 获取你要打的字
+    let index = 0;
+    
+    function type() {
+      if (index < text.length) {
+        element.innerHTML += text.charAt(index);
+        index++;
+        setTimeout(type, 350); // ⚡️ 这里的 150 是打字速度(毫秒)，越小越快
+      }
+    }
+    
+    // 稍微延迟一点点再开始打，更有感觉
+    setTimeout(type, 500);
+  });
+  </script>
 </footer>

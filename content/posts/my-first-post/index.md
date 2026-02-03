@@ -2,10 +2,8 @@
 date = '2026-02-01T18:46:57+08:00'
 draft = false
 title = 'My First Post'
-tags = ["生活", "编程"]        # 标签（Array格式）
-categories = ["随笔"]          # 分类
-showDate = true             
-showReadingTime = true
+tags = ["生活", "编程"]  
+categories = ["随笔"] 
 +++
 这里是摘要部分。写在这里的文字会显示在博客首页的卡片上。
 

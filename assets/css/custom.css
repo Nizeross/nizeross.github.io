@@ -1,0 +1,13 @@
+/* 光标闪烁动画 */
+.blink-cursor {
+  display: inline-block;
+  font-weight: bold;
+  color: orange; /* 光标颜色 */
+  animation: blink 1s step-end infinite;
+  margin-left: 2px;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}

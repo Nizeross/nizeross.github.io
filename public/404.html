@@ -108,6 +108,8 @@
   
   
   
+    
+  
   
     
   
@@ -115,8 +117,8 @@
   <link
     type="text/css"
     rel="stylesheet"
-    href="/css/main.bundle.min.b5368c8f64c443a2db3640baffb642b259c300b1b22c920ca173c246129a987e618d2ce489d86098e3470c351836906c95f0e0b44fd3514bb75ca118f8652640.css"
-    integrity="sha512-tTaMj2TEQ6LbNkC6/7ZCslnDALGyLJIMoXPCRhKamH5hjSzkidhgmONHDDUYNpBslfDgtE/TUUu3XKEY&#43;GUmQA==">
+    href="/css/main.bundle.min.6f4653bc4cce18df293674bf47a53ad3c5022024572ab44753d533f4dcf15664797074c8e77fa6ee1b333a7cf4c7984ab8a15148c0d6b7b757c6428e465af54c.css"
+    integrity="sha512-b0ZTvEzOGN8pNnS/R6U608UCICRXKrRHU9Uz9NzxVmR5cHTI53&#43;m7hszOnz0x5hKuKFRSMDWt7dXxkKORlr1TA==">
 
   
   
@@ -272,6 +274,10 @@
 
 
 
+  
+    
+  
+
 
 
 
@@ -298,6 +304,20 @@
     <div class="main-menu flex items-center w-full gap-2 p-1 pl-0">
   
     
+    
+      <div>
+        <a href="/" class="flex">
+          <span class="sr-only">NizerossのBlog</span>
+          
+            <img
+              src="/img/site_logo.png"
+              width="50"
+              height="50"
+              class="logo max-h-20 max-w-20 object-scale-down object-left nozoom"
+              alt="">
+          
+        </a>
+      </div>
     
   
   
@@ -623,7 +643,27 @@
   <span id="busuanzi_container_site_pv" style="display:none">
     本站总访问量 <span id="busuanzi_value_site_pv" class="font-bold"></span> 次
   </span>
-</div>
+  </div>
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const element = document.getElementById('typewriter');
+    if (!element) return; 
+
+    const text = element.getAttribute('data-text'); 
+    let index = 0;
+    
+    function type() {
+      if (index < text.length) {
+        element.innerHTML += text.charAt(index);
+        index++;
+        setTimeout(type, 350); 
+      }
+    }
+    
+    
+    setTimeout(type, 500);
+  });
+  </script>
 </footer>
 <div
   id="search-wrapper"
