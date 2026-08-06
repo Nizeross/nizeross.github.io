@@ -3,7 +3,7 @@
   lang="cn"
   dir="ltr"
   class="scroll-smooth"
-  data-default-appearance="dark"
+  data-default-appearance="light"
   data-auto-appearance="true"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
   <meta charset="utf-8">
   
@@ -245,7 +245,7 @@
     "keywords": ["Hugo","Blowfish"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "214"
+    "wordCount": "612"
   }]
   </script>
 
@@ -713,7 +713,7 @@
   <div class="flex flex-row flex-wrap items-center">
     
     
-      <time datetime="2026-03-31T17:01:46&#43;08:00">2026 年 3 月 31 日</time><span class="px-2 text-primary-500">&middot;</span><span>214 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">1 min</span><span class="px-2 text-primary-500">&middot;</span><span class="flex items-center">
+      <time datetime="2026-03-31T17:01:46&#43;08:00">2026 年 3 月 31 日</time><span class="px-2 text-primary-500">&middot;</span><span>612 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">2 mins</span><span class="px-2 text-primary-500">&middot;</span><span class="flex items-center">
   <span class="mr-1">👁️</span>
   
   <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
@@ -897,14 +897,14 @@
     <li><a href="#前言">前言</a></li>
     <li><a href="#step">Step</a>
       <ul>
-        <li></li>
-        <li></li>
+        <li><a href="#创建项目">创建项目</a></li>
+        <li><a href="#覆盖主题">覆盖主题</a></li>
+        <li><a href="#部署到github-pages">部署到Github Pages</a></li>
       </ul>
     </li>
-    <li><a href="#部署到github-pages">部署到Github Pages</a></li>
     <li><a href="#tips">Tips</a>
       <ul>
-        <li><a href="#1自定义图标添加">1.自定义图标添加</a></li>
+        <li><a href="#自定义图标添加">自定义图标添加</a></li>
       </ul>
     </li>
   </ul>
@@ -923,14 +923,14 @@
     <li><a href="#前言">前言</a></li>
     <li><a href="#step">Step</a>
       <ul>
-        <li></li>
-        <li></li>
+        <li><a href="#创建项目">创建项目</a></li>
+        <li><a href="#覆盖主题">覆盖主题</a></li>
+        <li><a href="#部署到github-pages">部署到Github Pages</a></li>
       </ul>
     </li>
-    <li><a href="#部署到github-pages">部署到Github Pages</a></li>
     <li><a href="#tips">Tips</a>
       <ul>
-        <li><a href="#1自定义图标添加">1.自定义图标添加</a></li>
+        <li><a href="#自定义图标添加">自定义图标添加</a></li>
       </ul>
     </li>
   </ul>
@@ -976,27 +976,47 @@
     
 </h2>
 
-<h3 class="relative group">
-    <div id="" class="anchor"></div>
+<h3 class="relative group">创建项目
+    <div id="创建项目" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
-        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#" aria-label="Anchor">#</a>
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e5%88%9b%e5%bb%ba%e9%a1%b9%e7%9b%ae" aria-label="Anchor">#</a>
     </span>
     
 </h3>
+<p>首先创建一个 Hugo 项目，site-name 记得替换成你的网站的名称（其实就是待会创建的文件夹名称）<code>hugo new site site-name</code>
+可以看一眼它的项目结构，项目结构大概像这样：</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">site-name
+</span></span><span class="line"><span class="cl">├── archetypes  # 模板文件
+</span></span><span class="line"><span class="cl">├── assets      # 资源文件，如 Logo
+</span></span><span class="line"><span class="cl">├── config      # 配置文件夹
+</span></span><span class="line"><span class="cl">├── content     # 文章存放处
+</span></span><span class="line"><span class="cl">├── i18n        # 多语言资源
+</span></span><span class="line"><span class="cl">├── layouts     # 存放布局的文件夹
+</span></span><span class="line"><span class="cl">├── static      # 存放静态文件
+</span></span><span class="line"><span class="cl">├── themes      # 主题文件夹
+</span></span><span class="line"><span class="cl">└── hugo.toml   # 项目配置文件</span></span></code></pre></div></div>
+<p>然后可以添加第一篇文章</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">hugo new content posts/first-blog.md</span></span></code></pre></div></div>
+<p>这条命令会向 content 文件夹内新建一个 posts 文件夹，然后再根据默认模板创建一个 first-blog.md 文件
+然后使用<code>hugo server</code>
+即可在本地运行</p>
 
-<h3 class="relative group">
-    <div id="" class="anchor"></div>
+<h3 class="relative group">覆盖主题
+    <div id="覆盖主题" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
-        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#" aria-label="Anchor">#</a>
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e8%a6%86%e7%9b%96%e4%b8%bb%e9%a2%98" aria-label="Anchor">#</a>
     </span>
     
 </h3>
+<p>在 Hugo 中，你自己所写的主题文件优先级都是高于 <code>themes/主题名称/</code> 文件夹内主题的，所以可以很轻松的覆写你想 DIY 的部分</p>
+<p>对于 themes 文件夹内的文件，你只需要保证在根目录有着同样文件结构就能够覆盖</p>
+<p>例如目录部分，对于 blowfish 它的位置是 <code>themes/blowfish/layouts/partials/toc.html</code>，而我们只需要复制这个文件，并把它放在 layouts/partials/toc.html 即可</p>
 
-<h2 class="relative group">部署到Github Pages
+<h3 class="relative group">部署到Github Pages
     <div id="部署到github-pages" class="anchor"></div>
     
     <span
@@ -1004,7 +1024,7 @@
         <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e9%83%a8%e7%bd%b2%e5%88%b0github-pages" aria-label="Anchor">#</a>
     </span>
     
-</h2>
+</h3>
 <ul>
 <li><strong>本地预览</strong>：<code>hugo server</code></li>
 <li><strong>部署发布</strong>：<code>git add .</code> -&gt; <code>git commit -m &quot;...&quot;</code> -&gt; <code>git push</code></li>
@@ -1021,25 +1041,18 @@
     
 </h2>
 
-<h3 class="relative group">1.自定义图标添加
-    <div id="1自定义图标添加" class="anchor"></div>
+<h3 class="relative group">自定义图标添加
+    <div id="自定义图标添加" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
-        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#1%e8%87%aa%e5%ae%9a%e4%b9%89%e5%9b%be%e6%a0%87%e6%b7%bb%e5%8a%a0" aria-label="Anchor">#</a>
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e8%87%aa%e5%ae%9a%e4%b9%89%e5%9b%be%e6%a0%87%e6%b7%bb%e5%8a%a0" aria-label="Anchor">#</a>
     </span>
     
 </h3>
 <ul>
 <li><a href="https://simpleicons.org/"  target="_blank" rel="noreferrer">simpleicon</a></li>
 </ul>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plaintext" data-lang="plaintext"><span class="line"><span class="cl">.
-</span></span><span class="line"><span class="cl">├─ archetypes
-</span></span><span class="line"><span class="cl">├─ assets
-</span></span><span class="line"><span class="cl">├─ config
-</span></span><span class="line"><span class="cl">├─ content
-</span></span><span class="line"><span class="cl">├─ data
-</span></span><span class="line"><span class="cl">...</span></span></code></pre></div></div>
 
           
           
