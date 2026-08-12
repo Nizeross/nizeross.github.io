@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>NizerossのBlog</title>
-    <link>http://localhost:1313/</link>
+    <link>https://nizeross.github.io/</link>
     <description>Recent content on NizerossのBlog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2025 - 2026 Nizeross All Rights Reserved.</copyright>
-    <lastBuildDate>Tue, 31 Mar 2026 17:01:46 +0800</lastBuildDate><atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 31 Mar 2026 17:01:46 +0800</lastBuildDate><atom:link href="https://nizeross.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>记录一下折腾blog的经历</title>
-      <link>http://localhost:1313/posts/how-build-blog/</link>
+      <link>https://nizeross.github.io/posts/how-build-blog/</link>
       <pubDate>Tue, 31 Mar 2026 17:01:46 +0800</pubDate>
       
-      <guid>http://localhost:1313/posts/how-build-blog/</guid>
+      <guid>https://nizeross.github.io/posts/how-build-blog/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/posts/how-build-blog/featured.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://nizeross.github.io/posts/how-build-blog/featured.png" />
     </item>
     
     <item>
       <title>My First Post</title>
-      <link>http://localhost:1313/posts/my-first-post/</link>
+      <link>https://nizeross.github.io/posts/my-first-post/</link>
       <pubDate>Sun, 01 Feb 2026 18:46:57 +0800</pubDate>
       
-      <guid>http://localhost:1313/posts/my-first-post/</guid>
+      <guid>https://nizeross.github.io/posts/my-first-post/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/posts/my-first-post/featured.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://nizeross.github.io/posts/my-first-post/featured.png" />
     </item>
     
   </channel>
