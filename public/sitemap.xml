@@ -4,13 +4,19 @@
 
   <url>
     <loc>https://nizeross.github.io/</loc>
-    <lastmod>2026-03-31T17:01:46+08:00</lastmod>
+    <lastmod>2026-09-07T12:00:00+08:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://nizeross.github.io/posts/pcl2-memory-optimization/</loc>
+    <lastmod>2026-09-07T12:00:00+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://nizeross.github.io/posts/</loc>
-    <lastmod>2026-03-31T17:01:46+08:00</lastmod>
+    <lastmod>2026-09-07T12:00:00+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
