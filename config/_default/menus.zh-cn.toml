@@ -12,16 +12,19 @@
 
 [[main]]
   name = "Home"
+  pre = "globe"
   pageRef = "/"
   weight = 10
 
 [[main]]
   name = "Posts"
+  pre = "file-lines"
   pageRef = "posts"
   weight = 20
 
 [[main]]
   name = "Tags"
+  pre = "tag"
   pageRef = "/tags"
   weight = 30
 
