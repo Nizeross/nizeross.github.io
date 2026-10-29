@@ -1,0 +1,16 @@
+{{ define "main" }}
+<section class="projects-page">
+  <p class="eyebrow">SMALL TOOLS, REAL QUESTIONS</p>
+  <h1>{{ .Title }}</h1>
+  <div class="prose dark:prose-invert">{{ .Content }}</div>
+  <div class="project-grid">
+    {{ range .Pages.ByWeight }}
+    <article class="project-card">
+      {{ $page := . }}
+      {{ with .Resources.GetMatch "screenshot*" }}<a href="{{ $page.RelPermalink }}" tabindex="-1" aria-hidden="true"><img src="{{ .RelPermalink }}" width="960" height="540" alt="" loading="lazy" class="nozoom"></a>{{ end }}
+      <div class="project-copy"><span class="project-status">{{ .Params.status | default "持续维护" }}</span><h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2><p>{{ .Description }}</p><ul class="stack-list" aria-label="技术栈">{{ range .Params.stack }}<li>{{ . }}</li>{{ end }}</ul><div class="project-links"><a href="{{ .RelPermalink }}">过程与收获 <span aria-hidden="true">→</span></a>{{ with .Params.github }}<a href="{{ . }}" rel="noopener noreferrer">GitHub ↗</a>{{ end }}</div></div>
+    </article>
+    {{ end }}
+  </div>
+</section>
+{{ end }}

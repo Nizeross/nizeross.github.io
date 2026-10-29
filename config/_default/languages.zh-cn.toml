@@ -1,23 +1,23 @@
 disabled = false
-languageCode = "en"
-languageName = "English"
+languageCode = "zh-CN"
+languageName = "简体中文"
 weight = 1
 title = "NizerossのBlog"
 
 [params]
   displayName = "简体中文"
-  isoCode = "cn"
+  isoCode = "zh-CN"
   rtl = false
   dateFormat = "2006 年 1 月 2 日"
   logo = "img/site_logo.png"
   # secondaryLogo = "img/secondary-logo.png"
-  description = "NIZEROSS's website"
+  description = "NIZEROSS 的数字花园：计算机学习、项目实践、阅读与思考。"
   copyright = '© 2025 - { year } Nizeross All Rights Reserved.'
 
 [params.author]
   name = "NIZEROSS"
   image = "img/avatar.png"
-  headline = "<span id='typewriter' data-text='千锤百炼'></span><span class='blink-cursor'>|</span>"
+  headline = "学习、构建，然后记录。"
   bio = "千锤百炼"
   links = [
     { bilibili = "https://space.bilibili.com/176505165" },

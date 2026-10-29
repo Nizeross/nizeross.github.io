@@ -1,0 +1,2 @@
+{{ $reading := resources.Get "js/reading-progress.js" | resources.Minify | resources.Fingerprint "sha512" }}
+<script defer src="{{ $reading.RelPermalink }}" integrity="{{ $reading.Data.Integrity }}"></script>

@@ -1,0 +1,6 @@
+<details open class="blog-toc toc-inside mt-0 overflow-hidden rounded-lg -ms-5 ps-5" id="TOCView">
+  <summary class="py-1 text-lg font-semibold cursor-pointer">{{ i18n "article.table_of_contents" }}</summary>
+  <div class="py-2 border-dotted border-neutral-300 border-s-1 -ms-5 ps-5 dark:border-neutral-600">
+    {{ .TableOfContents | replaceRE `id="TableOfContents"` `id="TableOfContents" aria-label="文章目录"` | safeHTML }}
+  </div>
+</details>

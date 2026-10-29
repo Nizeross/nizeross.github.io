@@ -23,10 +23,42 @@
   weight = 20
 
 [[main]]
+  name = "Projects"
+  pre = "code"
+  pageRef = "projects"
+  weight = 25
+
+[[main]]
   name = "Tags"
   pre = "tag"
   pageRef = "/tags"
   weight = 30
+
+[[main]]
+  name = "About"
+  pre = "circle-info"
+  pageRef = "about"
+  weight = 40
+
+[[footer]]
+  name = "分类"
+  pageRef = "categories"
+  weight = 10
+
+[[footer]]
+  name = "友情链接"
+  pageRef = "links"
+  weight = 20
+
+[[footer]]
+  name = "写作约定"
+  pageRef = "writing"
+  weight = 30
+
+[[footer]]
+  name = "RSS"
+  url = "/index.xml"
+  weight = 40
 
 
 #[[main]]

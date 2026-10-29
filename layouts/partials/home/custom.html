@@ -1,0 +1,47 @@
+<div class="workbench">
+  <section class="intro-grid" aria-labelledby="intro-title">
+    <div class="intro-copy">
+      <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span> NIZEROSS / PERSONAL WORKSPACE</p>
+      <h1 id="intro-title">保持好奇，<br>把想法写成<span class="intro-accent">现实。</span></h1>
+      <p class="intro-description">我是 NIZEROSS，一名计算机专业学生。在这里记录学习、构建与思考，也给尚未想明白的问题留一点空间。</p>
+      <div class="intro-actions">
+        <a class="action-primary" href="{{ "posts/" | relURL }}">进入文章归档 <span aria-hidden="true">↗</span></a>
+        <a class="action-secondary" href="{{ "projects/" | relURL }}">看看我在做什么 <span aria-hidden="true">→</span></a>
+      </div>
+      <p class="intro-note">计算机 · 开源实践 · 阅读与生活</p>
+    </div>
+    <aside class="terminal-panel" aria-label="个人工作台">
+      <div class="window-bar"><span class="window-dots" aria-hidden="true">● ● ●</span><span>~/nizeross/workspace</span><span aria-hidden="true">⌘</span></div>
+      <div class="terminal-body">
+        <p class="terminal-command"><span aria-hidden="true">❯</span> whoami</p>
+        {{ $avatar := resources.Get "img/avatar.png" }}
+        <div class="identity-line"><img src="{{ $avatar.RelPermalink }}" width="64" height="64" alt="NIZEROSS 的头像" class="nozoom"><div><strong>NIZEROSS</strong><span>学生 / 探索者 / 记录者</span></div></div>
+        <p class="terminal-command"><span aria-hidden="true">❯</span> cat interests.txt</p>
+        <ul class="terminal-list"><li>计算机科学与软件工程</li><li>从一个问题到一个可用的项目</li><li>哲学阅读，和日常的微小观察</li></ul>
+        <p class="terminal-footnote">// 学习是一种长期运行的进程。</p>
+      </div>
+      <div class="window-status"><span>UTF-8</span><span>持续学习中 <span class="status-dot" aria-hidden="true"></span></span></div>
+    </aside>
+  </section>
+
+  <section class="topics-section" aria-labelledby="topics-title">
+    <div class="section-heading"><div><p class="eyebrow">EXPLORE THE GARDEN</p><h2 id="topics-title">沿着兴趣，慢慢探索</h2></div><a href="{{ "categories/" | relURL }}">全部分类 <span aria-hidden="true">↗</span></a></div>
+    <div class="topic-grid">
+      {{ range slice (dict "name" "技术学习" "icon" "code" "note" "理解原理，也动手验证" "index" "01") (dict "name" "项目开发" "icon" "codeberg" "note" "让知识成为可用的东西" "index" "02") (dict "name" "读书笔记" "icon" "file-lines" "note" "与书本展开一场对话" "index" "03") (dict "name" "思想随笔" "icon" "lightbulb" "note" "留住尚在生长的想法" "index" "04") (dict "name" "生活记录" "icon" "mug-hot" "note" "收集日常的细节" "index" "05") }}
+        {{ $term := site.GetPage (printf "/categories/%s" .name) }}
+        <a class="topic-card" href="{{ $term.RelPermalink }}"><span class="topic-top"><span class="topic-icon">{{ partial "icon.html" .icon }}</span><span class="topic-index">{{ .index }}</span></span><h3>{{ .name }}</h3><p>{{ .note }}</p></a>
+      {{ end }}
+    </div>
+  </section>
+
+  <section class="recent-section" aria-labelledby="recent-title">
+    <div class="section-heading"><div><p class="eyebrow">RECENT CHANGES</p><h2 id="recent-title">最近的记录</h2></div><a href="{{ "posts/" | relURL }}">所有文章 <span aria-hidden="true">↗</span></a></div>
+    <div class="recent-list">
+      {{ range first 5 (where site.RegularPages "Section" "posts").ByLastmod.Reverse }}
+        <article class="recent-entry"><div class="entry-date"><time datetime="{{ .Lastmod.Format "2006-01-02" }}">{{ .Lastmod.Format "2006.01.02" }}</time><span>{{ .ReadingTime }} 分钟阅读</span></div><div><div class="entry-tags">{{ range first 2 .Params.tags }}<span>#{{ . }}</span>{{ end }}</div><h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3><p>{{ .Summary | plainify | truncate 105 }}</p></div><span class="entry-arrow" aria-hidden="true">↗</span></article>
+      {{ end }}
+    </div>
+  </section>
+
+  <section class="build-note" aria-labelledby="build-title"><div><p class="eyebrow">BUILD IN PUBLIC</p><h2 id="build-title">从使用工具，到理解工具。</h2><p>这个网站也是我的工程练习场：用简单的技术，认真解决写作、阅读和发布的问题。</p></div><a class="action-secondary" href="{{ "projects/personal-blog/" | relURL }}">打开项目日志 <span aria-hidden="true">↗</span></a></section>
+</div>

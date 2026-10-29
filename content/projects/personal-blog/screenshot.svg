@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+<title id="title">博客自动化工作流示意</title><desc id="desc">Markdown 内容经过检查和构建，再经人工审核发布到 GitHub Pages。</desc>
+<rect width="960" height="540" fill="#1e293b"/><rect x="48" y="48" width="864" height="444" rx="12" fill="#243348" stroke="#475569"/>
+<g font-family="Consolas, monospace"><text x="80" y="92" fill="#cbd5e1" font-size="18">~/nizeross/blog-system</text><path d="M48 116h864" stroke="#475569"/>
+<text x="80" y="180" fill="#7dd3b8" font-size="30">WRITE. BUILD. LEARN.</text><text x="80" y="226" fill="#e2e8f0" font-size="19">A small system for long-term thinking.</text>
+<g fill="#334155" stroke="#64748b"><rect x="80" y="290" width="170" height="74" rx="5"/><rect x="290" y="290" width="170" height="74" rx="5"/><rect x="500" y="290" width="170" height="74" rx="5"/><rect x="710" y="290" width="170" height="74" rx="5"/></g>
+<g fill="#f1f5f9" font-size="18" text-anchor="middle"><text x="165" y="334">Markdown</text><text x="375" y="334">Check + Build</text><text x="585" y="334">Review</text><text x="795" y="334">Pages</text></g>
+<g stroke="#7dd3b8" stroke-width="2"><path d="M255 327h29m-7-5 7 5-7 5M465 327h29m-7-5 7 5-7 5M675 327h29m-7-5 7 5-7 5" fill="none"/></g>
+<text x="80" y="440" fill="#cbd5e1" font-size="16">Hugo / Blowfish / Python / GitHub Actions</text></g></svg>
