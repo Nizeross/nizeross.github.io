@@ -1,6 +1,8 @@
 /.tools/
 /.build/
 /.cache/
+/assets/lib/katex/
+/resources/_gen/
 /node_modules/
 /test-results/
 /playwright-report/

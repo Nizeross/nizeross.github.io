@@ -31,7 +31,8 @@ def hugo():
 
 
 def run(*args):
-    subprocess.run(args, cwd=ROOT, check=True)
+    env = dict(os.environ, HUGO_RESOURCEDIR=str(ROOT / '.build/resources'))
+    subprocess.run(args, cwd=ROOT, check=True, env=env)
 
 
 def new_post(kind, title, slug=None):
@@ -64,6 +65,7 @@ def main():
     if args.command == 'new':
         new_post(args.kind, args.title, args.slug)
     elif args.command == 'build':
+        run(sys.executable, 'scripts/sync_vendor.py')
         run(hugo(), '--destination', '.build/site', '--cacheDir', str(ROOT / '.cache/hugo'), '--gc', '--minify')
     elif args.command == 'preview':
         run(hugo(), 'server', '--buildDrafts', '--destination', '.build/preview', '--bind', '127.0.0.1', '--port', '1313')

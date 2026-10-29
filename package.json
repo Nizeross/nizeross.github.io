@@ -1,0 +1,23 @@
+{
+  "name": "nizeross-blog-quality",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Development-only quality checks for a Hugo static blog",
+  "engines": { "node": ">=24 <25" },
+  "scripts": {
+    "lint": "markdownlint-cli2",
+    "test:e2e": "playwright test",
+    "browsers": "node scripts/install_browser.cjs",
+    "audit:dependencies": "npm audit --audit-level=high"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.64.1",
+    "@axe-core/playwright": "4.14.0",
+    "markdownlint-cli2": "0.24.0",
+    "katex": "0.19.1"
+  },
+  "overrides": {
+    "re2js": "2.9.1",
+    "katex": "0.19.1"
+  }
+}
