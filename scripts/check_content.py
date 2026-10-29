@@ -95,6 +95,7 @@ def check_document(path, text, root=ROOT):
 
 
 def main():
+    sys.stdout.reconfigure(encoding='utf-8')
     paths = sorted((ROOT / 'content').rglob('*.md'))
     failures = []
     for path in paths:

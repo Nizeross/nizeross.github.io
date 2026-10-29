@@ -1,2 +1,2 @@
-{{ $reading := resources.Get "js/reading-progress.js" | resources.Minify | resources.Fingerprint "sha512" }}
-<script defer src="{{ $reading.RelPermalink }}" integrity="{{ $reading.Data.Integrity }}"></script>
+{{ $scripts := slice (resources.Get "js/reading-progress.js") (resources.Get "js/navigation-accessibility.js") | resources.Concat "js/site.js" | resources.Minify | resources.Fingerprint "sha512" }}
+<script defer src="{{ $scripts.RelPermalink }}" integrity="{{ $scripts.Data.Integrity }}"></script>

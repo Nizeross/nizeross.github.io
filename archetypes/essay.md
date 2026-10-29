@@ -1,5 +1,5 @@
 +++
-title = {{ .Title }}
+title = {{ printf "%q" .Name }}
 date = '{{ .Date }}'
 draft = true
 contentType = "essay"

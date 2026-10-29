@@ -47,12 +47,13 @@ def new_post(kind, title, slug=None):
     folder.mkdir()
     template = (ROOT / 'archetypes' / f'{kind}.md').read_text(encoding='utf-8')
     template = template.replace('{{ .Date }}', dt.datetime.now(dt.timezone(dt.timedelta(hours=8))).isoformat(timespec='seconds'))
-    template = template.replace('{{ .Title }}', json.dumps(title, ensure_ascii=False))
+    template = template.replace('{{ printf "%q" .Name }}', json.dumps(title, ensure_ascii=False))
     (folder / 'index.md').write_text(template, encoding='utf-8')
     print(f'Created draft: {folder / "index.md"}')
 
 
 def main():
+    sys.stdout.reconfigure(encoding='utf-8')
     parser = argparse.ArgumentParser(description=__doc__)
     sub = parser.add_subparsers(dest='command', required=True)
     new = sub.add_parser('new')
@@ -66,7 +67,7 @@ def main():
         new_post(args.kind, args.title, args.slug)
     elif args.command == 'build':
         run(sys.executable, 'scripts/sync_vendor.py')
-        run(hugo(), '--destination', '.build/site', '--cacheDir', str(ROOT / '.cache/hugo'), '--gc', '--minify')
+        run(hugo(), '--destination', '.build/site', '--cacheDir', str(ROOT / '.cache/hugo'), '--cleanDestinationDir', '--gc', '--minify')
     elif args.command == 'preview':
         run(hugo(), 'server', '--buildDrafts', '--destination', '.build/preview', '--bind', '127.0.0.1', '--port', '1313')
     elif args.command == 'check':

@@ -1,0 +1,7 @@
+{{/* Existing Markdown mermaid fences use the audited local asset bundle. */}}
+{{ if and (not (.HasShortcode "mermaid")) (findRE "(?m)^```mermaid" .RawContent) }}
+  {{ $mermaid := resources.Get "lib/mermaid/mermaid.min.js" }}
+  {{ $config := resources.Get "js/mermaid.js" | resources.Minify }}
+  {{ $bundle := slice $mermaid $config | resources.Concat "js/mermaid.bundle.js" | resources.Fingerprint "sha512" }}
+  <script defer src="{{ $bundle.RelPermalink }}" integrity="{{ $bundle.Data.Integrity }}"></script>
+{{ end }}

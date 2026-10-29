@@ -2,6 +2,7 @@
 /.build/
 /.cache/
 /assets/lib/katex/
+/assets/lib/mermaid/
 /resources/_gen/
 /node_modules/
 /test-results/

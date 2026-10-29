@@ -27,6 +27,11 @@ test('homepage navigation, theme, responsive layout and accessibility', async ({
   await page.screenshot({ path: `reports/home-${info.project.name}-dark.png`, fullPage: true });
   await page.locator(toggle).click();
   await page.screenshot({ path: `reports/home-${info.project.name}-light.png`, fullPage: true });
+  const resources = await page.evaluate(() => performance.getEntriesByType('resource').map(entry => ({
+    path: new URL(entry.name).pathname, bytes: entry.encodedBodySize, type: entry.initiatorType
+  })));
+  fs.writeFileSync(`reports/performance-${info.project.name}.json`, JSON.stringify(resources, null, 2));
+  expect(resources.some(entry => entry.path.includes('mermaid.bundle') || entry.path.includes('katex.bundle'))).toBeFalsy();
   expect(failures).toEqual([]);
 });
 
@@ -39,16 +44,20 @@ test('search finds a legacy article', async ({ page }, info) => {
   await expect(page).toHaveURL(/posts\/pcl2-memory-optimization/);
 });
 
-test('article code, math, image zoom, progress, taxonomy and anchor', async ({ page }, info) => {
+test('article code, math, image zoom, progress, taxonomy and anchor', async ({ page, context }, info) => {
   await page.goto('/writing/');
   await expect(page.locator('.katex').first()).toBeVisible();
   await expect(page.locator('.highlight')).toBeVisible();
   await expect(page.locator('.copy-button')).toBeAttached();
+  await context.grantPermissions(['clipboard-read', 'clipboard-write']);
+  await page.locator('.highlight-wrapper').hover();
+  await page.locator('.copy-button').click();
+  expect(await page.evaluate(() => navigator.clipboard.readText())).toContain('def learn_by_building');
   await page.locator('.article-content img').first().click();
-  await expect(page.locator('.medium-zoom-image--opened')).toBeVisible();
+  await expect(page.locator('.medium-zoom-image--opened').last()).toBeVisible();
   await page.keyboard.press('Escape');
-  await page.locator('.article-content a[href="#代码"]').click();
-  await expect(page).toHaveURL(/#%E4%BB%A3%E7%A0%81|#代码/);
+  await page.locator('.article-content').getByRole('link', { name: '代码', exact: true }).click();
+  await expect(page).toHaveURL(url => decodeURIComponent(url.hash) === '#代码');
   await page.evaluate(() => scrollTo(0, document.body.scrollHeight));
   await expect.poll(() => page.locator('.reading-progress').evaluate(el => el.value)).toBeGreaterThan(90);
   await page.screenshot({ path: `reports/reading-${info.project.name}.png`, fullPage: true });
@@ -57,6 +66,9 @@ test('article code, math, image zoom, progress, taxonomy and anchor', async ({ p
   await expect(page.locator('a[href*="/tags/hugo/"]').first()).toBeVisible();
   const axe = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21aa']).analyze();
   expect(axe.violations).toEqual([]);
+  await page.goto('/posts/pcl2-memory-optimization/');
+  await expect(page.locator('.mermaid svg')).toBeVisible();
+  await page.screenshot({ path: `reports/diagram-${info.project.name}.png`, fullPage: true });
 });
 
 test('primary routes, metadata, projects and mobile menu', async ({ page }, info) => {
@@ -72,9 +84,11 @@ test('primary routes, metadata, projects and mobile menu', async ({ page }, info
   await page.goto('/projects/');
   await expect(page.getByRole('heading', { name: '个人博客与自动化发布系统' })).toBeVisible();
   if (info.project.name === 'mobile') {
-    await page.locator('label[for="mobile-menu-toggle"]').first().click();
-    await expect(page.locator('[role="dialog"]')).toBeVisible();
-    await page.locator('[role="dialog"]').getByRole('link', { name: 'About', exact: true }).click();
+    await page.locator('label[for="mobile-menu-toggle"]').first().press('Enter');
+    await expect(page.locator('#mobile-navigation')).toBeVisible();
+    const menuAxe = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21aa']).analyze();
+    expect(menuAxe.violations).toEqual([]);
+    await page.locator('#mobile-navigation').getByRole('link', { name: 'About', exact: true }).click();
     await expect(page).toHaveURL(/\/about\//);
   }
   fs.mkdirSync('reports', { recursive: true });

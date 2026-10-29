@@ -1,5 +1,8 @@
 import sys
 import importlib.util
+import shutil
+import tempfile
+from unittest.mock import patch
 from pathlib import Path
 import unittest
 
@@ -121,6 +124,40 @@ class LinkTests(unittest.TestCase):
 
     def test_duplicate_ids(self):
         self.assertEqual(Document('<p id="x"></p><p id="x"></p>').duplicates, ['x'])
+
+
+class WritingAssistantTests(unittest.TestCase):
+    def setUp(self):
+        self.workspace = tempfile.TemporaryDirectory()
+        self.root = Path(self.workspace.name)
+        (self.root / 'content/posts').mkdir(parents=True)
+        (self.root / 'archetypes').mkdir()
+        shutil.copy2(ROOT / 'archetypes/technical.md', self.root / 'archetypes/technical.md')
+        self.root_patch = patch.object(blog_cli, 'ROOT', self.root)
+        self.root_patch.start()
+
+    def tearDown(self):
+        self.root_patch.stop()
+        self.workspace.cleanup()
+
+    def test_creates_valid_draft(self):
+        blog_cli.new_post('technical', '中文标题', 'safe-slug')
+        path = self.root / 'content/posts/safe-slug/index.md'
+        meta, body = parse_document(path.read_text(encoding='utf-8'))
+        self.assertTrue(meta['draft'])
+        self.assertEqual(meta['title'], '中文标题')
+        self.assertEqual(check_document(path, path.read_text(encoding='utf-8'), self.root), [])
+
+    def test_refuses_path_traversal(self):
+        with self.assertRaises(ValueError):
+            blog_cli.new_post('technical', 'Unsafe', '../../escape')
+
+    def test_never_overwrites_existing_post(self):
+        blog_cli.new_post('technical', 'First', 'same-slug')
+        with self.assertRaises(FileExistsError):
+            blog_cli.new_post('technical', 'Second', 'same-slug')
+        meta, body = parse_document((self.root / 'content/posts/same-slug/index.md').read_text(encoding='utf-8'))
+        self.assertEqual(meta['title'], 'First')
 
 
 if __name__ == '__main__':

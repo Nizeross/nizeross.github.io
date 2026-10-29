@@ -1,0 +1,4 @@
+{{- $icon := resources.Get (print "icons/" . ".svg") -}}
+{{- with $icon -}}
+  <span class="relative block icon" aria-hidden="true">{{ .Content | replaceRE `<svg\s` `<svg focusable="false" ` | safeHTML }}</span>
+{{- end -}}

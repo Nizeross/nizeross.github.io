@@ -2,6 +2,7 @@
 import argparse
 from html.parser import HTMLParser
 import json
+import sys
 from pathlib import Path
 from urllib.parse import unquote, urljoin, urlsplit
 
@@ -76,6 +77,7 @@ def check_site(site):
 
 
 if __name__ == '__main__':
+    sys.stdout.reconfigure(encoding='utf-8')
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('directory', nargs='?', default='.build/site')
     args = parser.parse_args()

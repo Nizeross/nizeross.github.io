@@ -4,7 +4,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 const root = path.resolve(__dirname, '../.build/site');
 const types = { '.html': 'text/html; charset=utf-8', '.css': 'text/css', '.js': 'text/javascript', '.json': 'application/json', '.svg': 'image/svg+xml', '.png': 'image/png', '.jpg': 'image/jpeg', '.xml': 'application/xml', '.woff2': 'font/woff2', '.woff': 'font/woff' };
-http.createServer((req, res) => {
+const server = http.createServer((req, res) => {
   let file;
   try {
     const pathname = decodeURIComponent(new URL(req.url, 'http://localhost').pathname);
@@ -18,3 +18,4 @@ http.createServer((req, res) => {
     res.writeHead(404, { 'content-type': 'text/plain' }); res.end('Not found');
   }
 }).listen(4173, '127.0.0.1', () => console.log('Local preview: http://127.0.0.1:4173'));
+module.exports = server;

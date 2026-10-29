@@ -8,8 +8,8 @@ module.exports = defineConfig({
   workers: 1,
   retries: process.env.CI ? 1 : 0,
   reporter: [['list'], ['html', { open: 'never' }], ['json', { outputFile: 'reports/browser-results.json' }]],
-  use: { baseURL: 'http://127.0.0.1:4173', trace: 'retain-on-failure', screenshot: 'only-on-failure' },
-  webServer: {
+  use: { baseURL: 'http://127.0.0.1:4173', channel: 'chromium', trace: 'retain-on-failure', screenshot: 'only-on-failure' },
+  webServer: process.env.BLOG_TEST_SERVER === 'managed' ? undefined : {
     command: 'node scripts/serve.cjs',
     url: 'http://127.0.0.1:4173',
     reuseExistingServer: false
