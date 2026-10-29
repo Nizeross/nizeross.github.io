@@ -9,6 +9,7 @@
     "test:e2e": "node scripts/test-browser.cjs",
     "browsers": "node scripts/install_browser.cjs",
     "test:workflows": "node --test tests/workflows.test.cjs",
+    "verify": "node scripts/verify.cjs",
     "audit:dependencies": "npm audit --audit-level=high"
   },
   "devDependencies": {

@@ -128,7 +128,9 @@ class LinkTests(unittest.TestCase):
 
 class WritingAssistantTests(unittest.TestCase):
     def setUp(self):
-        self.workspace = tempfile.TemporaryDirectory()
+        workspace_dir = ROOT / '.build/test-workspaces'
+        workspace_dir.mkdir(parents=True, exist_ok=True)
+        self.workspace = tempfile.TemporaryDirectory(dir=workspace_dir)
         self.root = Path(self.workspace.name)
         (self.root / 'content/posts').mkdir(parents=True)
         (self.root / 'archetypes').mkdir()

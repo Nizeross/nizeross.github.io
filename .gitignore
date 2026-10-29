@@ -9,6 +9,7 @@
 /playwright-report/
 /reports/*.json
 /reports/*.png
+/reports/*.log
 /.hugo_build.lock
 __pycache__/
 *.pyc

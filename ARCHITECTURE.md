@@ -38,3 +38,11 @@ Markdown + 本地图片 → 内容/格式检查 → Hugo → HTML/RSS/JSON
 新增 CI 只有 contents:read，不部署。生产 workflow 的建议版本保存在 `.github/workflow-proposals/`，不会被 GitHub 执行。最终需要人工批准替换旧工作流，并配置 main 必须 PR、必需检查、禁止绕过，以及 github-pages 环境审核。代码无法代替服务器端分支保护；未配置前不能声称审核已强制生效。本次不修改默认分支、远程、域名或 Pages 设置，也不推送。
 
 参考：[Blowfish 自定义机制](https://blowfish.page/docs/advanced-customisation/)、[GitHub Pages workflows](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages)、[Hugo 安全配置](https://gohugo.io/configuration/security/)。
+
+## 本地重构落地情况
+
+`home/custom.html` 提供工作台首页，Projects 使用独立列表模板，其余文章保留主题的主体模板。目录、图标、搜索与移动菜单通过小范围站点覆盖修复可访问性问题。`contentType` 用作文章类型字段，避免占用 Hugo 保留的 kind。五种 archetypes 同时支持原生 Hugo 与本地助手。
+
+构建同时隔离 publishDir 与 resourceDir，分别为 `.build/site` 和 `.build/resources`；历史 public/ 与 resources/ 文件不作为新源码。构建前同步锁定的数学资源，并从经 audit 的依赖图重建 Mermaid，随后 Hugo 负责指纹与按需发布。esbuild 只在这一步打包已有图表库，不形成应用框架依赖。
+
+只读 HTTP 核对确认用户名地址返回 200 并跳转 `https://kirisame.me/`，未发现独立占用的第二站点。仍需站点所有者确认后才统一 canonical/baseURL 与正式发布策略。当前方案、实现和验证均保存在本地分支，线上仍为原有版本。
