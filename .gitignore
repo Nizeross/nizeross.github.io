@@ -1,0 +1,14 @@
+/.tools/
+/.build/
+/.cache/
+/node_modules/
+/test-results/
+/playwright-report/
+/reports/*.json
+/reports/*.png
+/.hugo_build.lock
+__pycache__/
+*.pyc
+.env
+.env.*
+!.env.example
