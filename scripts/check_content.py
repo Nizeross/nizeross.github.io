@@ -40,8 +40,8 @@ def check_document(path, text, root=ROOT):
             errors.append(f'{field} must be a list of non-empty strings')
     is_post = 'posts' in path.relative_to(root).parts
     if is_post:
-        if not meta.get('summary') or not meta.get('categories'):
-            errors.append('Posts require summary and categories')
+        if not meta.get('summary'):
+            errors.append('Posts require a summary')
         if meta.get('contentType') not in TYPES:
             errors.append('Unknown or missing contentType')
         try:

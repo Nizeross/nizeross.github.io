@@ -2,7 +2,6 @@
 date = '2026-03-31T17:01:46+08:00'
 draft = false
 tags = ["Hugo", "Blowfish"]
-categories = ["技术学习"]
 contentType = "technical"
 summary = "记录使用 Hugo 与 Blowfish 搭建博客时的目录组织、主题覆盖与 GitHub Pages 部署实践。"
 title = '记录一下折腾blog的经历'

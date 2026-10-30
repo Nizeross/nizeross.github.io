@@ -70,6 +70,12 @@ def check_site(site):
         if not (site / asset).is_file():
             errors.append(f'Missing feed/search/SEO output: {asset}')
     search = json.loads((site / 'index.json').read_text(encoding='utf-8'))
+    removed = ('categories', 'projects', 'links', 'writing')
+    for section in removed:
+        if (site / section).exists():
+            errors.append(f'Removed section still generated: {section}')
+    if any(any(f'/{section}/' in x.get('permalink', '') for section in removed) for x in search):
+        errors.append('Removed pages remain in search index')
     if not any('PCL2' in x.get('title', '') for x in search):
         errors.append('Existing PCL2 article is missing from search index')
     print(f'{len(pages)} HTML pages, {count} internal references, {len(legacy)} legacy URLs')

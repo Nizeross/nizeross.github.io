@@ -1,5 +1,13 @@
 # 本地验证记录
 
+## 2026-10-30：回归文章博客
+
+恢复原生背景图首页后，完整 `npm run verify` 已通过：38 项 Python 测试、3 项工作流测试、8 组桌面/移动端浏览器测试。正式构建输出 22 个 HTML，575 个内部引用与三个旧文章 URL 全部通过检查。新增检查确认 Categories、Projects、Links、Writing 不再生成，也不进入搜索索引。
+
+公式与排版测试使用 tests/fixtures/rendering，并单独构建 .build/browser-site，不向正式站点添加测试页面。原公开页面与工作台模板已移入 archive/removed-site-sections/2026-10-30，可恢复。首页截图已更新；进入本轮前 public/ 中已有的未提交构建文件保持原样。
+
+以下为上一轮重构的历史验证记录。
+
 日期：2026-10-29。环境：Windows AMD64、Node 24.16.0、Python 3.14.3、Hugo Extended 0.154.5、Playwright Chromium。CI 准备使用 Ubuntu 24.04 / Python 3.11，但本次没有执行远程 workflow。
 
 | 检查 | 实际结果 |

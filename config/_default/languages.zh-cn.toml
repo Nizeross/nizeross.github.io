@@ -17,7 +17,7 @@ title = "NizerossのBlog"
 [params.author]
   name = "NIZEROSS"
   image = "img/avatar.png"
-  headline = "学习、构建，然后记录。"
+  headline = "<span id='typewriter' data-text='千锤百炼'>千锤百炼</span><span class='blink-cursor' aria-hidden='true'>|</span>"
   bio = "千锤百炼"
   links = [
     { bilibili = "https://space.bilibili.com/176505165" },

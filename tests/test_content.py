@@ -55,6 +55,9 @@ class ContentTests(unittest.TestCase):
     def test_missing_summary(self):
         self.assertTrue(self.errors(VALID.replace('summary = "测试解析与验证。"', '')))
 
+    def test_categories_are_optional(self):
+        self.assertEqual(self.errors(VALID.replace('categories = ["技术学习"]', '')), [])
+
     def test_draft_type(self):
         self.assertTrue(self.errors(VALID.replace('draft = true', 'draft = "true"')))
 

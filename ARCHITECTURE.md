@@ -1,5 +1,7 @@
 # 架构与现状审计
 
+当前界面（2026-10-30）：恢复 Blowfish 原生 background 首页，主要发布文章并使用 Tags。分类、项目、友链、写作约定及工作台模板已归档到 archive/，不生成公开页面。下文保留首次重构的审计与决策记录；开发与测试工具继续使用。
+
 审计日期：2026-10-29。工作区为 `D:\hugo`，实际 Git/Hugo 项目根为 `myblog/`；所有开发命令从该目录执行。初始工作区干净，基线提交 `efbb03e`，远程为 `git@github.com:Nizeross/nizeross.github.io.git`，默认分支 `main`。本次仅在本地 `refactor/blog-system` 开发。
 
 ## 决策：保留 Hugo + Blowfish

@@ -3,7 +3,6 @@ date = '2026-02-01T18:46:57+08:00'
 draft = false
 title = 'My First Post'
 tags = ["生活", "编程"]  
-categories = ["随笔", "生活记录"]
 contentType = "life"
 summary = "博客的第一篇记录，以及 Markdown、代码块与提示组件的尝试。"
 +++

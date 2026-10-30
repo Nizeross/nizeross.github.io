@@ -1,5 +1,7 @@
 # 自动化发布与审核边界
 
+2026-10-30 已获得将重构推送并合并 main 的授权。生产 hugo.yaml 已补齐锁定 Hugo/Node/Python、资源生成和完整验证，发布经过测试的 .build/site；保留原 main 触发、既有域名与 Pages 设置。另一人审核的 proposal 仍不启用。下文“保留旧 workflow 原样”的描述属于本次授权上线之前的历史记录。
+
 ## 当前与拟议流程
 
 线上现有 `.github/workflows/hugo.yaml` 未改动，仍是 push main 后构建发布。新增 `quality.yml` 只验证 PR、非 main 分支和手动运行；没有 Pages 写权限。它也可被审核后的发布流程复用。生产替换配置保存在 `.github/workflow-proposals/pages.yml`，GitHub 不会执行这个目录的文件。

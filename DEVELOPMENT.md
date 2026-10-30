@@ -12,14 +12,13 @@
 
 ## Frontmatter 约定
 
-使用 `+++` 包围 TOML，日期必须含时区，draft 为真正布尔值。`contentType` 说明文章类型；不要用 `kind`，它是 Hugo 的保留字段。summary 用一句话交代问题与结论，tags 用于跨类别关联，categories 用于较稳定的导航。
+使用 `+++` 包围 TOML，日期必须含时区，draft 为真正布尔值。`contentType` 说明写作模板类型；不要用 `kind`，它是 Hugo 的保留字段。summary 用一句话交代问题与结论，tags 用于文章归档与关联，网站不再使用 Categories。
 
 ```toml
 title = "理解虚拟内存"
 date = 2026-10-29T12:00:00+08:00
 draft = true
 contentType = "technical"
-categories = ["技术学习"]
 tags = ["操作系统", "内存"]
 summary = "从地址映射与缺页异常理解虚拟内存。"
 ```
@@ -28,19 +27,21 @@ summary = "从地址映射与缺页异常理解虚拟内存。"
 
 也可以直接使用 Hugo 原生命令，例如 `.tools/hugo new content --kind technical posts/example/index.md`（Windows 使用 `.tools/hugo.exe`）。原生模板会以目录名作为初始标题，助手则接收完整中文标题。未指定类型时的默认 archetype 也包含必要字段。
 
-## 图片、数学和项目页
+## 图片与数学
 
 图片和 `index.md` 放在同一个 leaf bundle，使用 `![描述](image.png)`。描述应说明图片传达的信息。不要把本地磁盘路径写进正文，也不要引用工作区外文件。既有文章仍保留原目录，从而保留外链。
 
 数学公式在文章开头加入 `{{</* katex */>}}`，然后使用 `\( ... \)` 或 `$$ ... $$`。资源来自本地锁定的 KaTeX，不依赖 CDN。代码围栏必须标注语言；Python 示例会做语法解析，不执行文章代码，因此不会误运行读者提供的程序。
 
-新项目复制 `content/projects/personal-blog/` 的结构，改 title、description、stack、github、status，并写明背景、技术选择、开发过程、收获和计划。将新项目先设为 draft。截图与项目同目录；不能把示意图称为真实运行截图。
+不再维护项目展示页。项目实践可以直接写成普通文章，与其他笔记一样通过 Tags 组织。
 
 ## 检查分层
 
 内容检查定位到源文件，识别 Frontmatter 类型、slug、图片与围栏错误。Markdown lint 统一排版。Hugo 验证实际模板和短代码；生成页检查再验证 HTML 中的每个内部链接、资源、锚点、重复 ID、搜索索引及旧 URL。两层检查互补：源文件看起来正确，不代表模板生成的链接正确。
 
 Playwright 在桌面和移动视口验证搜索、主题、目录、代码、公式、放大图片、阅读进度和主要页面，并用 axe 检查 WCAG A/AA 规则。自动检查不等于完整无障碍认证；写作时仍需审阅图片描述与内容层次。
+
+公式等测试样例位于 `tests/fixtures/`。浏览器检查会单独生成 `.build/browser-site/`，这些测试页面不进入正式发布目录 `.build/site/`。
 
 ## 依赖更新
 

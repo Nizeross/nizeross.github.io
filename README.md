@@ -1,5 +1,7 @@
 # NIZEROSS 的个人网站
 
+2026-10-30 调整：网站回归文章发布，首页恢复原来的 Blowfish 背景图、头像、个人简介和最近文章布局。使用 Tags 组织内容；分类、Projects、友情链接及写作约定不再发布。相关页面与旧首页模板保存在 `archive/removed-site-sections/2026-10-30/`。
+
 一个基于 Hugo + Blowfish 的个人数字花园，记录计算机学习、项目实践、阅读与生活。站点无需数据库或在线写作 API；Node 只用于开发检查，浏览器不运行应用框架。
 
 ## 从哪里开始
@@ -46,7 +48,7 @@ npm run audit:dependencies
 
 浏览器安装完成后，可以用 `npm run verify` 一次执行全部本地检查。失败会停在对应阶段，并将完整输出保存为 `reports/verify.log`。
 
-当前正式部署 workflow 仍然是原来的 `hugo.yaml`。重构只新增验证 CI，安全发布替换方案位于 `.github/workflow-proposals/pages.yml`，需要确认后启用。不要把本地改造完成理解为线上已更新，也不要在审核前直接推送 main。
+正式部署使用 `hugo.yaml`：合并到 main 后安装锁定工具链、执行完整验证，再将 `.build/site` 发布到既有 Pages 站点；检查失败不会进入部署。严格的另一人审核发布方案仍位于 `.github/workflow-proposals/pages.yml`，未启用。日常文章使用独立分支与 PR，检查通过并人工审阅后再合并。
 
 ## 文档导航
 

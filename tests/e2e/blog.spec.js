@@ -12,9 +12,11 @@ test('homepage navigation, theme, responsive layout and accessibility', async ({
   page.on('pageerror', error => failures.push(error.message));
   await appearance(page, 'light');
   await page.goto('/');
-  await expect(page.getByRole('heading', { level: 1 })).toContainText('保持好奇');
-  await expect(page.getByRole('link', { name: '进入文章归档' })).toHaveAttribute('href', '/posts/');
-  await expect(page.locator('.topic-card')).toHaveCount(5);
+  await expect(page.getByRole('heading', { level: 1 })).toHaveText('NIZEROSS');
+  await expect(page.locator('#background-image')).toBeVisible();
+  await expect(page.locator('#typewriter')).toHaveText('千锤百炼');
+  await expect(page.locator('a[href^="/categories/"], a[href^="/projects/"], a[href^="/links/"], a[href^="/writing/"]')).toHaveCount(0);
+  await expect(page.getByRole('link', { name: /PCL2百宝箱/ }).first()).toBeVisible();
   const width = await page.evaluate(() => ({ actual: document.documentElement.scrollWidth, available: innerWidth }));
   expect(width.actual).toBeLessThanOrEqual(width.available + 1);
   expect(await page.locator('body').evaluate(el => getComputedStyle(el).backgroundColor)).toBe('rgb(255, 255, 255)');
@@ -45,7 +47,7 @@ test('search finds a legacy article', async ({ page }, info) => {
 });
 
 test('article code, math, image zoom, progress, taxonomy and anchor', async ({ page, context }, info) => {
-  await page.goto('/writing/');
+  await page.goto('/test-rendering/');
   await expect(page.locator('.katex').first()).toBeVisible();
   await expect(page.locator('.highlight')).toBeVisible();
   await expect(page.locator('.copy-button')).toBeAttached();
@@ -71,8 +73,8 @@ test('article code, math, image zoom, progress, taxonomy and anchor', async ({ p
   await page.screenshot({ path: `reports/diagram-${info.project.name}.png`, fullPage: true });
 });
 
-test('primary routes, metadata, projects and mobile menu', async ({ page }, info) => {
-  for (const path of ['/posts/', '/projects/', '/projects/personal-blog/', '/about/', '/links/', '/categories/', '/tags/']) {
+test('article routes, removed sections and mobile menu', async ({ page }, info) => {
+  for (const path of ['/posts/', '/about/', '/tags/']) {
     const response = await page.goto(path);
     expect(response.status()).toBe(200);
     await expect(page.locator('h1')).toHaveCount(1);
@@ -81,8 +83,11 @@ test('primary routes, metadata, projects and mobile menu', async ({ page }, info
     const overflow = await page.evaluate(() => document.documentElement.scrollWidth > innerWidth + 1);
     expect(overflow, path).toBeFalsy();
   }
-  await page.goto('/projects/');
-  await expect(page.getByRole('heading', { name: '个人博客与自动化发布系统' })).toBeVisible();
+  for (const path of ['/projects/', '/links/', '/writing/', '/categories/']) {
+    const response = await page.goto(path);
+    expect(response.status()).toBe(404);
+  }
+  await page.goto('/');
   if (info.project.name === 'mobile') {
     await page.locator('label[for="mobile-menu-toggle"]').first().press('Enter');
     await expect(page.locator('#mobile-navigation')).toBeVisible();

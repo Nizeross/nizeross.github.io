@@ -3,7 +3,6 @@ date = '2026-09-07T12:00:00+08:00'
 draft = false
 title = 'PCL2百宝箱内存优化功能分析'
 tags = ["内存优化"]
-categories = ["随笔", "技术学习"]
 contentType = "technical"
 summary = "基于公开信息与技术推断分析 PCL2 内存优化：工作集缩减机制、局限与其他方式的比较。"
 +++
