@@ -52,9 +52,12 @@ test('article code, math, image zoom, progress, taxonomy and anchor', async ({ p
   await expect(page.locator('.highlight')).toBeVisible();
   await expect(page.locator('.copy-button')).toBeAttached();
   await context.grantPermissions(['clipboard-read', 'clipboard-write']);
+  await page.evaluate(() => navigator.clipboard.writeText(''));
   await page.locator('.highlight-wrapper').hover();
   await page.locator('.copy-button').click();
-  expect(await page.evaluate(() => navigator.clipboard.readText())).toContain('def learn_by_building');
+  await expect.poll(() => page.evaluate(() => navigator.clipboard.readText()), {
+    message: 'Copy button should finish writing the example to the system clipboard'
+  }).toContain('def learn_by_building');
   await page.locator('.article-content img').first().click();
   await expect(page.locator('.medium-zoom-image--opened').last()).toBeVisible();
   await page.keyboard.press('Escape');
