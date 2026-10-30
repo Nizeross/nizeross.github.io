@@ -1,0 +1,15 @@
++++
+title = {{ printf "%q" .Name }}
+date = '{{ .Date }}'
+draft = true
+contentType = "life"
+tags = []
+summary = "请用一句话说明这篇文章的核心问题。"
++++
+
+## 此时此地
+
+## 想留下的细节
+
+## 回看
+

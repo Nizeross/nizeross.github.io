@@ -28,6 +28,17 @@
   pageRef = "/tags"
   weight = 30
 
+[[main]]
+  name = "About"
+  pre = "circle-info"
+  pageRef = "about"
+  weight = 40
+
+[[footer]]
+  name = "RSS"
+  url = "/index.xml"
+  weight = 40
+
 
 #[[main]]
 #  name = "Parent"

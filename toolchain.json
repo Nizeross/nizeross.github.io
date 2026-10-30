@@ -1,0 +1,10 @@
+{
+  "hugo": "0.154.5",
+  "themeCommit": "3a9016a6d93f6d498ab5fc3b0aa7d51869962f25",
+  "node": "24",
+  "python": "3.11",
+  "hugoDownloads": {
+    "windows-amd64.zip": "19d1b5e0104b1915acdec74ffcd163c691fc7bfe9d95b487503650ce62a13d7e",
+    "linux-amd64.tar.gz": "372d2f0538b24d2bb9285f0583c1e3b02d023ec2c2b8eb90e5c3bbfb3139fb13"
+  }
+}

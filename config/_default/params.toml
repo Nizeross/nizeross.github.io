@@ -12,6 +12,7 @@ autoSwitchAppearance = true
 enableA11y = false
 enableSearch = true
 enableCodeCopy = true
+disableImageZoom = false
 enableStructuredBreadcrumbs = false
 # enableStyledScrollbar = true # disable to use native scrollbar style (defaults to true)
 
@@ -52,7 +53,7 @@ forgejoDefaultServer = "https://v11.next.forgejo.org"
   showScrollToTop = true
 
 [homepage]
-  layout = "background" # valid options: page, profile, hero, card, background, custom
+  layout = "background" # Original Blowfish profile and background layout
   homepageImage = "image.jpg" # used in: hero, and card
   showRecent = true
   showRecentItems = 3
@@ -65,7 +66,7 @@ forgejoDefaultServer = "https://v11.next.forgejo.org"
 
 [article]
   showDate = true
-  showViews = true
+  showViews = false
   showLikes = false
   showDasteOnlyInArticle = false
   showDateUpdated = false
@@ -86,9 +87,9 @@ forgejoDefaultServer = "https://v11.next.forgejo.org"
   invertPagination = false
   showReadingTime = true
   showTableOfContents = true
-  # showRelatedContent = false
-  # relatedContentLimit = 3
-  showTaxonomies = false # use showTaxonomies OR showCategoryOnly, not both
+  showRelatedContent = true
+  relatedContentLimit = 3
+  showTaxonomies = true # use showTaxonomies OR showCategoryOnly, not both
   showCategoryOnly = false # use showTaxonomies OR showCategoryOnly, not both
   showAuthorsBadges = false
   showWordCount = true
@@ -138,13 +139,7 @@ forgejoDefaultServer = "https://v11.next.forgejo.org"
   cardViewScreenWidth = false
 
 [firebase]
- # apiKey = "AIzaSyDlMaHFta2wQE_de28aIka_LMI28PJUBV4"
- # authDomain = "blog-blowfish-cfaee.firebaseapp.com"
- # projectId = "blog-blowfish-cfaee"
- # storageBucket = "blog-blowfish-cfaee.firebasestorage.app"
- # messagingSenderId = "587286702711"
- # appId = "1:587286702711:web:327f6d58bd48f0dcc4b472"
- # measurementId = "G-V7RW6NWLKM"
+ # Optional integration deliberately left unconfigured.
 
 [fathomAnalytics]
   # site = "ABC12345"
